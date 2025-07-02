@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TransactionType {
+  IN
+  OUT
+}
+
+enum UserRole {
+  ADMIN
+  OPERATOR
+}
+
+model Rack {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id           String        @id @default(uuid())
+  name         String
+  code         String        @unique
+  stock        Int
+  rackId       String
+  rack         Rack          @relation(fields: [rackId], references: [id])
+  transactions Transaction[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Transaction {
+  id        String          @id @default(uuid())
+  productId String
+  date      DateTime        @default(now())
+  type      TransactionType
+  amount    Int
+  userId    String
+  product   Product         @relation(fields: [productId], references: [id])
+  user      User            @relation(fields: [userId], references: [id])
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+}
+
+model User {
+  id           String        @id @default(uuid())
+  name         String
+  username     String        @unique
+  password     String
+  role         UserRole      @default(OPERATOR)
+  transactions Transaction[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
