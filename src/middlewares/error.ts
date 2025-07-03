@@ -1,14 +1,14 @@
-import type { NextFunction, Request, Response } from 'express';
-import { Prisma } from '@prisma/client';
+import type { NextFunction, Request, Response } from "express";
+import { Prisma } from "@prisma/client";
 import {
   JsonWebTokenError,
   TokenExpiredError,
   NotBeforeError,
-} from 'jsonwebtoken';
-import { ZodError } from 'zod';
-import ApiError from '../utils/error';
-import { NODE_ENV } from '../utils/env';
-import { isPrismaErrorCode, prismaErrorMessage } from '../utils/prisma';
+} from "jsonwebtoken";
+import { ZodError } from "zod";
+import ApiError from "../utils/error";
+import { NODE_ENV } from "../utils/env";
+import { isPrismaErrorCode, prismaErrorMessage } from "../utils/prisma";
 
 const formatZodError = (err: ZodError): string => {
   const firstIssue = err.issues[0];
@@ -17,22 +17,22 @@ const formatZodError = (err: ZodError): string => {
 
 const handleJWTError = (err: JsonWebTokenError): string => {
   if (err instanceof TokenExpiredError)
-    return 'Token expired. Please login again';
-  if (err instanceof NotBeforeError) return 'Token not yet valid';
+    return "Token expired. Please login again";
+  if (err instanceof NotBeforeError) return "Token not yet valid";
 
   switch (err.message) {
-    case 'jwt malformed':
-      return 'Invalid token format';
-    case 'invalid signature':
-      return 'Token signature verification failed';
-    case 'jwt must be provided':
-      return 'No token provided';
-    case 'invalid token':
-      return 'Invalid authentication token';
-    case 'jwt expired':
-      return 'Session expired. Please login again';
+    case "jwt malformed":
+      return "Invalid token format";
+    case "invalid signature":
+      return "Token signature verification failed";
+    case "jwt must be provided":
+      return "No token provided";
+    case "invalid token":
+      return "Invalid authentication token";
+    case "jwt expired":
+      return "Session expired. Please login again";
     default:
-      return 'Authentication failed';
+      return "Authentication failed";
   }
 };
 
@@ -43,7 +43,7 @@ const handlePrismaKnownError = (
   if (isPrismaErrorCode(err.code)) {
     msg = prismaErrorMessage(err.code);
   } else {
-    msg = 'Database error';
+    msg = "Database error";
   }
   return msg;
 };
@@ -61,10 +61,10 @@ const errorHandler = (
   err: unknown,
   req: Request,
   res: Response,
-  _next: NextFunction
+  next: NextFunction
 ) => {
   let statusCode: number = 500;
-  let message: string = 'Internal Server Error';
+  let message: string = "Internal Server Error";
   let success: boolean = false;
 
   if (err instanceof ApiError) {
@@ -82,13 +82,13 @@ const errorHandler = (
     statusCode = getPrismaErrorStatusCode(err.code);
   } else if (err instanceof Prisma.PrismaClientValidationError) {
     statusCode = 400;
-    message = 'Invalid database query format';
+    message = "Invalid database query format";
   } else if (err instanceof Error) {
     message = err.message;
   }
 
-  if (NODE_ENV === 'development') {
-    console.error('[Error]', {
+  if (NODE_ENV === "development") {
+    console.error("[Error]", {
       path: req.path,
       method: req.method,
       error: err instanceof Error ? err.stack : err,
@@ -96,6 +96,8 @@ const errorHandler = (
   }
 
   res.status(statusCode).json({ success, message });
+
+  next();
 };
 
 export default errorHandler;

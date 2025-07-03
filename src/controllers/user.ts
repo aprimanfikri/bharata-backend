@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response } from 'express';
-import prisma from '../lib/prisma';
-import ApiError from '../utils/error';
-import { hashSync } from 'bcryptjs';
-import { createUserSchema, updateUserSchema } from '../validation';
+import { NextFunction, Request, Response } from "express";
+import prisma from "../lib/prisma";
+import ApiError from "../utils/error";
+import { hashSync } from "bcryptjs";
+import { createUserSchema, updateUserSchema } from "../validation";
 
 export const getAllUsers = async (
   _req: Request,
@@ -21,13 +21,13 @@ export const getAllUsers = async (
         transactions: true,
       },
       orderBy: {
-        createdAt: 'desc',
+        createdAt: "desc",
       },
     });
 
     res.json({
       success: true,
-      message: 'Users fetched successfully',
+      message: "Users fetched successfully",
       data: { users },
     });
   } catch (error) {
@@ -50,7 +50,7 @@ export const createUser = async (
     });
 
     if (exist) {
-      throw new ApiError('Username already in use', 409);
+      throw new ApiError("Username already in use", 409);
     }
 
     const hash = hashSync(password);
@@ -75,7 +75,7 @@ export const createUser = async (
 
     res.status(201).json({
       success: true,
-      message: 'User created successfully',
+      message: "User created successfully",
       data: { user },
     });
   } catch (error) {
@@ -98,7 +98,7 @@ export const updateUser = async (
     });
 
     if (!user) {
-      throw new ApiError('User not found', 404);
+      throw new ApiError("User not found", 404);
     }
 
     if (username && username.toLowerCase() !== user.username.toLowerCase()) {
@@ -109,7 +109,7 @@ export const updateUser = async (
       });
 
       if (existingUsername && existingUsername.id !== id) {
-        throw new ApiError('Username already in use', 409);
+        throw new ApiError("Username already in use", 409);
       }
     }
 
@@ -140,7 +140,7 @@ export const updateUser = async (
 
     res.status(200).json({
       success: true,
-      message: 'User updated successfully',
+      message: "User updated successfully",
       data: { user: updatedUser },
     });
   } catch (error) {
@@ -170,12 +170,12 @@ export const getUserById = async (
     });
 
     if (!user) {
-      throw new ApiError('User not found', 404);
+      throw new ApiError("User not found", 404);
     }
 
     res.status(200).json({
       success: true,
-      message: 'User fetched successfully',
+      message: "User fetched successfully",
       data: { user },
     });
   } catch (error) {
@@ -192,7 +192,7 @@ export const deleteUser = async (
     const { id } = req.params;
 
     if (id === req.user?.id) {
-      throw new ApiError('You cannot delete your own account', 400);
+      throw new ApiError("You cannot delete your own account", 400);
     }
 
     const user = await prisma.user.findUnique({
@@ -200,7 +200,7 @@ export const deleteUser = async (
     });
 
     if (!user) {
-      throw new ApiError('User not found', 404);
+      throw new ApiError("User not found", 404);
     }
 
     await prisma.user.delete({
@@ -209,7 +209,7 @@ export const deleteUser = async (
 
     res.status(200).json({
       success: true,
-      message: 'User deleted successfully',
+      message: "User deleted successfully",
     });
   } catch (error) {
     next(error);

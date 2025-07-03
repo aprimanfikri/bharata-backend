@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from 'express';
-import { transactionSchema } from '../validation';
-import { TransactionType } from '@prisma/client';
-import { handleStockUpdate } from '../services/stock';
-import prisma from '../lib/prisma';
-import ApiError from '../utils/error';
+import { NextFunction, Request, Response } from "express";
+import { transactionSchema } from "../validation";
+import { TransactionType } from "@prisma/client";
+import { handleStockUpdate } from "../services/stock";
+import prisma from "../lib/prisma";
+import ApiError from "../utils/error";
 
 export const getAllTransactions = async (
   _req: Request,
@@ -17,12 +17,12 @@ export const getAllTransactions = async (
         product: true,
       },
       orderBy: {
-        createdAt: 'desc',
+        createdAt: "desc",
       },
     });
     res.status(200).json({
       success: true,
-      message: 'Transactions fetched successfully',
+      message: "Transactions fetched successfully",
       data: { transactions },
     });
   } catch (error) {
@@ -47,12 +47,12 @@ export const getTransactionById = async (
     });
 
     if (!transaction) {
-      throw new ApiError('Transaction not found', 404);
+      throw new ApiError("Transaction not found", 404);
     }
 
     res.status(200).json({
       success: true,
-      message: 'Transaction fetched successfully',
+      message: "Transaction fetched successfully",
       data: { transaction },
     });
   } catch (error) {
@@ -79,7 +79,7 @@ export const createTransaction = async (
 
     res.status(201).json({
       success: true,
-      message: 'Transaction created',
+      message: "Transaction created",
       data: { transaction },
     });
   } catch (error) {

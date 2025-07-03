@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from 'express';
-import { loginSchema } from '../validation';
-import prisma from '../lib/prisma';
-import ApiError from '../utils/error';
-import { compareSync } from 'bcryptjs';
-import { generateToken } from '../utils/jwt';
+import { NextFunction, Request, Response } from "express";
+import { loginSchema } from "../validation";
+import prisma from "../lib/prisma";
+import ApiError from "../utils/error";
+import { compareSync } from "bcryptjs";
+import { generateToken } from "../utils/jwt";
 
 export const loginUser = async (
   req: Request,
@@ -20,20 +20,20 @@ export const loginUser = async (
     });
 
     if (!user) {
-      throw new ApiError('User not found', 404);
+      throw new ApiError("User not found", 404);
     }
 
     const match = compareSync(password, user.password);
 
     if (!match) {
-      throw new ApiError('Invalid Password', 400);
+      throw new ApiError("Invalid Password", 400);
     }
 
     const token = generateToken(user.id, user.role);
 
     res.status(200).json({
       success: true,
-      message: 'User login successfully',
+      message: "User login successfully",
       data: {
         token,
         user: {
@@ -56,7 +56,7 @@ export const checkUser = async (req: Request, res: Response) => {
 
   res.status(200).json({
     success: true,
-    message: 'Authenticated successfully',
+    message: "Authenticated successfully",
     data: { user },
   });
 };

@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response } from 'express';
-import prisma from '../lib/prisma';
-import ApiError from '../utils/error';
-import { generateUniqueProductCode } from '../utils/util';
-import { createProductSchema, updateProductSchema } from '../validation';
+import { NextFunction, Request, Response } from "express";
+import prisma from "../lib/prisma";
+import ApiError from "../utils/error";
+import { generateUniqueProductCode } from "../utils/util";
+import { createProductSchema, updateProductSchema } from "../validation";
 
 export const getAllProducts = async (
   _req: Request,
@@ -13,13 +13,17 @@ export const getAllProducts = async (
     const products = await prisma.product.findMany({
       include: {
         rack: true,
-        transactions: true,
+        transactions: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
 
     res.status(200).json({
       success: true,
-      message: 'Products fetched successfully',
+      message: "Products fetched successfully",
       data: { products },
     });
   } catch (error) {
@@ -44,12 +48,12 @@ export const getProductById = async (
     });
 
     if (!product) {
-      throw new ApiError('Product not found', 404);
+      throw new ApiError("Product not found", 404);
     }
 
     res.status(200).json({
       success: true,
-      message: 'Product fetched successfully',
+      message: "Product fetched successfully",
       data: { product },
     });
   } catch (error) {
@@ -70,7 +74,7 @@ export const createProduct = async (
     });
 
     if (!rack) {
-      throw new ApiError('Rack not found', 404);
+      throw new ApiError("Rack not found", 404);
     }
 
     const code = await generateUniqueProductCode(name);
@@ -90,7 +94,7 @@ export const createProduct = async (
 
     res.status(201).json({
       success: true,
-      message: 'Product created successfully',
+      message: "Product created successfully",
       data: { product },
     });
   } catch (error) {
@@ -113,7 +117,7 @@ export const updateProduct = async (
     });
 
     if (!product) {
-      throw new ApiError('Product not found', 404);
+      throw new ApiError("Product not found", 404);
     }
 
     let code = product.code;
@@ -128,7 +132,7 @@ export const updateProduct = async (
       });
 
       if (!rack) {
-        throw new ApiError('Rack not found', 404);
+        throw new ApiError("Rack not found", 404);
       }
     }
 
@@ -147,7 +151,7 @@ export const updateProduct = async (
 
     res.status(200).json({
       success: true,
-      message: 'Product updated successfully',
+      message: "Product updated successfully",
       data: { product: updatedProduct },
     });
   } catch (error) {
@@ -169,7 +173,7 @@ export const deleteProduct = async (
 
     res.status(200).json({
       success: true,
-      message: 'Product deleted successfully',
+      message: "Product deleted successfully",
     });
   } catch (error) {
     next(error);

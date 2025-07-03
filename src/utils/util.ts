@@ -1,10 +1,10 @@
-import prisma from '../lib/prisma';
+import prisma from "../lib/prisma";
 
 const generateInitialCode = (name: string): string => {
   return name
-    .split(' ')
+    .split(" ")
     .map((word) => word[0].toUpperCase())
-    .join('');
+    .join("");
 };
 
 export const generateUniqueProductCode = async (

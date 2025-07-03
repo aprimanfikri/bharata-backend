@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
-import prisma from '../lib/prisma';
-import { rackSchema } from '../validation';
-import ApiError from '../utils/error';
+import { NextFunction, Request, Response } from "express";
+import prisma from "../lib/prisma";
+import { rackSchema } from "../validation";
+import ApiError from "../utils/error";
 
 export const getAllRacks = async (
   _req: Request,
@@ -17,7 +17,7 @@ export const getAllRacks = async (
 
     res.json({
       success: true,
-      message: 'Racks fetched successfully',
+      message: "Racks fetched successfully",
       data: {
         racks,
       },
@@ -42,7 +42,7 @@ export const createRack = async (
     });
 
     if (rackExists) {
-      throw new ApiError('Rack already exists', 409);
+      throw new ApiError("Rack already exists", 409);
     }
 
     const rack = await prisma.rack.create({
@@ -56,7 +56,7 @@ export const createRack = async (
 
     res.status(201).json({
       success: true,
-      message: 'Rack created successfully',
+      message: "Rack created successfully",
       data: {
         rack,
       },
@@ -84,12 +84,12 @@ export const getRackById = async (
     });
 
     if (!rack) {
-      throw new ApiError('Rack not found', 404);
+      throw new ApiError("Rack not found", 404);
     }
 
     res.status(200).json({
       success: true,
-      message: 'Rack fetched successfully',
+      message: "Rack fetched successfully",
       data: {
         rack,
       },
@@ -114,7 +114,7 @@ export const updateRack = async (
     });
 
     if (!existingRack) {
-      throw new ApiError('Rack not found', 404);
+      throw new ApiError("Rack not found", 404);
     }
 
     const rackWithSameName = await prisma.rack.findUnique({
@@ -122,7 +122,7 @@ export const updateRack = async (
     });
 
     if (rackWithSameName && rackWithSameName.id !== id) {
-      throw new ApiError('Rack with same name already exists', 409);
+      throw new ApiError("Rack with same name already exists", 409);
     }
 
     const updatedRack = await prisma.rack.update({
@@ -135,7 +135,7 @@ export const updateRack = async (
 
     res.status(200).json({
       success: true,
-      message: 'Rack updated successfully',
+      message: "Rack updated successfully",
       data: {
         rack: updatedRack,
       },
@@ -158,7 +158,7 @@ export const deleteRack = async (
     });
 
     if (!existingRack) {
-      throw new ApiError('Rack not found', 404);
+      throw new ApiError("Rack not found", 404);
     }
 
     await prisma.rack.delete({
@@ -167,7 +167,7 @@ export const deleteRack = async (
 
     res.status(200).json({
       success: true,
-      message: 'Rack deleted successfully',
+      message: "Rack deleted successfully",
     });
   } catch (error) {
     next(error);

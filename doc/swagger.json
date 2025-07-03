@@ -28,9 +28,7 @@
         "summary": "Check",
         "deprecated": false,
         "description": "Check User",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "parameters": [],
         "responses": {
           "200": {
@@ -78,11 +76,7 @@
                       ]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "user"
-                  ]
+                  "required": ["success", "message", "user"]
                 },
                 "example": {
                   "success": true,
@@ -114,10 +108,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -141,10 +132,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -167,9 +155,7 @@
         "summary": "Login",
         "deprecated": false,
         "description": "Login user",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -187,11 +173,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "email",
-                  "password",
-                  "username"
-                ]
+                "required": ["email", "password", "username"]
               },
               "example": {
                 "username": "jhondoe",
@@ -252,17 +234,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "token",
-                        "user"
-                      ]
+                      "required": ["token", "user"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -300,10 +275,7 @@
                       ]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -325,15 +297,10 @@
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Email not found"
-                      ]
+                      "examples": ["Email not found"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -355,15 +322,10 @@
                     },
                     "message": {
                       "type": "string",
-                      "examples": [
-                        "Internal Server Error"
-                      ]
+                      "examples": ["Internal Server Error"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -382,9 +344,7 @@
         "summary": "Get All Users",
         "deprecated": false,
         "description": "Get All Users",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [],
         "responses": {
           "200": {
@@ -436,16 +396,10 @@
                           }
                         }
                       },
-                      "required": [
-                        "users"
-                      ]
+                      "required": ["users"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -482,10 +436,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -509,10 +460,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -533,9 +481,7 @@
         "summary": "Create User",
         "deprecated": false,
         "description": "Create User",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -554,18 +500,10 @@
                   },
                   "role": {
                     "type": "string",
-                    "enum": [
-                      "ADMIN",
-                      "OPERATOR"
-                    ]
+                    "enum": ["ADMIN", "OPERATOR"]
                   }
                 },
-                "required": [
-                  "name",
-                  "username",
-                  "password",
-                  "role"
-                ]
+                "required": ["name", "username", "password", "role"]
               },
               "example": {
                 "name": "John Doe",
@@ -625,16 +563,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "user"
-                      ]
+                      "required": ["user"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -668,10 +600,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -695,10 +624,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -722,10 +648,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -749,10 +672,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -776,10 +696,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -802,9 +719,7 @@
         "summary": "Get User By Id",
         "deprecated": false,
         "description": "Get User By Id",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -873,16 +788,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "user"
-                      ]
+                      "required": ["user"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -917,10 +826,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -944,10 +850,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -968,9 +871,7 @@
         "summary": "Update User",
         "deprecated": false,
         "description": "Update User",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -1000,10 +901,7 @@
                   },
                   "role": {
                     "type": "string",
-                    "enum": [
-                      "ADMIN",
-                      "OPERATOR"
-                    ]
+                    "enum": ["ADMIN", "OPERATOR"]
                   }
                 }
               },
@@ -1065,16 +963,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "user"
-                      ]
+                      "required": ["user"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -1108,10 +1000,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1135,10 +1024,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1162,10 +1048,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1189,10 +1072,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1216,10 +1096,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1243,10 +1120,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1267,9 +1141,7 @@
         "summary": "Delete User",
         "deprecated": false,
         "description": "Delete User",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -1297,10 +1169,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": true,
@@ -1324,10 +1193,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1351,10 +1217,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1378,10 +1241,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1405,10 +1265,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1432,10 +1289,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1458,9 +1312,7 @@
         "summary": "Get All Racks",
         "deprecated": false,
         "description": "Get All Racks",
-        "tags": [
-          "Rack"
-        ],
+        "tags": ["Rack"],
         "parameters": [],
         "responses": {
           "200": {
@@ -1506,16 +1358,10 @@
                           }
                         }
                       },
-                      "required": [
-                        "racks"
-                      ]
+                      "required": ["racks"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -1550,10 +1396,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1570,9 +1413,7 @@
         "summary": "Create Rack",
         "deprecated": false,
         "description": "Create Rack",
-        "tags": [
-          "Rack"
-        ],
+        "tags": ["Rack"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -1584,9 +1425,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "name"
-                ]
+                "required": ["name"]
               },
               "example": {
                 "name": "Rack 1"
@@ -1642,16 +1481,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "rack"
-                      ]
+                      "required": ["rack"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -1684,10 +1517,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1711,10 +1541,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1738,10 +1565,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1765,10 +1589,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1791,9 +1612,7 @@
         "summary": "Get Rack By Id",
         "deprecated": false,
         "description": "Get Rack By Id",
-        "tags": [
-          "Rack"
-        ],
+        "tags": ["Rack"],
         "parameters": [
           {
             "name": "id",
@@ -1854,16 +1673,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "rack"
-                      ]
+                      "required": ["rack"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -1896,10 +1709,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1923,10 +1733,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -1943,9 +1750,7 @@
         "summary": "Update Rack",
         "deprecated": false,
         "description": "Update Rack",
-        "tags": [
-          "Rack"
-        ],
+        "tags": ["Rack"],
         "parameters": [
           {
             "name": "id",
@@ -1967,9 +1772,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "name"
-                ]
+                "required": ["name"]
               },
               "example": {
                 "name": "Rack 1"
@@ -2048,16 +1851,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "rack"
-                      ]
+                      "required": ["rack"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -2100,10 +1897,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2127,10 +1921,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2154,10 +1945,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2181,10 +1969,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2205,9 +1990,7 @@
         "summary": "Delete Rack",
         "deprecated": false,
         "description": "Delete Rack",
-        "tags": [
-          "Rack"
-        ],
+        "tags": ["Rack"],
         "parameters": [
           {
             "name": "id",
@@ -2235,10 +2018,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": true,
@@ -2262,10 +2042,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2289,10 +2066,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2316,10 +2090,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2342,9 +2113,7 @@
         "summary": "Get All Products",
         "deprecated": false,
         "description": "Get All Products",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "parameters": [],
         "responses": {
           "200": {
@@ -2393,16 +2162,10 @@
                           }
                         }
                       },
-                      "required": [
-                        "products"
-                      ]
+                      "required": ["products"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -2439,10 +2202,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2459,9 +2219,7 @@
         "summary": "Create Product",
         "deprecated": false,
         "description": "Create Product",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -2479,11 +2237,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "name",
-                  "stock",
-                  "rackId"
-                ]
+                "required": ["name", "stock", "rackId"]
               },
               "example": {
                 "name": "Bawang Bombay",
@@ -2577,16 +2331,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "product"
-                      ]
+                      "required": ["product"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -2628,10 +2376,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2655,10 +2400,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2682,10 +2424,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2709,10 +2448,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2735,9 +2471,7 @@
         "summary": "Get Product By Id",
         "deprecated": false,
         "description": "Get Product By Id",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "parameters": [
           {
             "name": "id",
@@ -2769,9 +2503,7 @@
         "summary": "Update Product",
         "deprecated": false,
         "description": "Update Product",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "parameters": [
           {
             "name": "id",
@@ -2888,16 +2620,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "product"
-                      ]
+                      "required": ["product"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -2939,10 +2665,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2966,10 +2689,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -2993,10 +2713,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -3020,10 +2737,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -3044,9 +2758,7 @@
         "summary": "Delete Product",
         "deprecated": false,
         "description": "Delete Product",
-        "tags": [
-          "Product"
-        ],
+        "tags": ["Product"],
         "parameters": [
           {
             "name": "id",
@@ -3074,10 +2786,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": true,
@@ -3101,10 +2810,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -3128,10 +2834,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -3155,10 +2858,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -3181,9 +2881,7 @@
         "summary": "Create Transaction",
         "deprecated": false,
         "description": "Create Transaction",
-        "tags": [
-          "Transaction"
-        ],
+        "tags": ["Transaction"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -3196,20 +2894,13 @@
                   },
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "IN",
-                      "OUT"
-                    ]
+                    "enum": ["IN", "OUT"]
                   },
                   "quantity": {
                     "type": "integer"
                   }
                 },
-                "required": [
-                  "productId",
-                  "type",
-                  "quantity"
-                ]
+                "required": ["productId", "type", "quantity"]
               },
               "example": {
                 "productId": "e119371c-a1d7-4829-b33a-be5e9b66a046",
@@ -3276,16 +2967,10 @@
                           ]
                         }
                       },
-                      "required": [
-                        "transaction"
-                      ]
+                      "required": ["transaction"]
                     }
                   },
-                  "required": [
-                    "success",
-                    "message",
-                    "data"
-                  ]
+                  "required": ["success", "message", "data"]
                 },
                 "example": {
                   "success": true,
@@ -3321,10 +3006,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,
@@ -3348,10 +3030,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "success",
-                    "message"
-                  ]
+                  "required": ["success", "message"]
                 },
                 "example": {
                   "success": false,

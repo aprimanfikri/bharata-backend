@@ -1,6 +1,6 @@
-import { TransactionType, Prisma } from '@prisma/client';
-import prisma from '../lib/prisma';
-import ApiError from '../utils/error';
+import { TransactionType, Prisma } from "@prisma/client";
+import prisma from "../lib/prisma";
+import ApiError from "../utils/error";
 
 export const handleStockUpdate = async (
   productId: string,
@@ -13,17 +13,13 @@ export const handleStockUpdate = async (
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     return await prisma.$transaction(
       async (tx) => {
-        let newStock: number;
-        let transactionRecord;
-
         if (type === TransactionType.IN) {
           const updatedProduct = await tx.product.update({
             where: { id: productId },
             data: { stock: { increment: quantity } },
           });
-          newStock = updatedProduct.stock;
           if (!updatedProduct) {
-            throw new ApiError('Product not found', 404);
+            throw new ApiError("Product not found", 404);
           }
         } else {
           const updatedProductRows = await tx.$queryRaw<
@@ -40,15 +36,14 @@ export const handleStockUpdate = async (
               where: { id: productId },
             });
             if (productExists === 0) {
-              throw new ApiError('Product not found', 404);
+              throw new ApiError("Product not found", 404);
             } else {
-              throw new ApiError('Stock not enough', 400);
+              throw new ApiError("Stock not enough", 400);
             }
           }
-          newStock = updatedProductRows[0].stock;
         }
 
-        transactionRecord = await tx.transaction.create({
+        const transactionRecord = await tx.transaction.create({
           data: {
             productId,
             type,
@@ -66,7 +61,7 @@ export const handleStockUpdate = async (
   }
 
   throw new ApiError(
-    'Failed to update stock after multiple retries. All attempts failed.',
+    "Failed to update stock after multiple retries. All attempts failed.",
     500
   );
 };

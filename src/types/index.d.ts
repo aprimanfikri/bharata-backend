@@ -1,4 +1,4 @@
-import { User, UserRole } from '@prisma/client';
+import { User, UserRole } from "@prisma/client";
 
 declare global {
   namespace Express {
@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-declare module 'jsonwebtoken' {
+declare module "jsonwebtoken" {
   export interface JwtPayload {
     id: string;
     role: UserRole;
